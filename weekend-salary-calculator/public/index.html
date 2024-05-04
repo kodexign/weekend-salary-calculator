@@ -2,7 +2,7 @@
 <html>
 
 <head>
-
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -16,16 +16,14 @@
     <form class="new-employee" onSubmit="submitForm(event)">
         <input id="first-name" type="text" placeholder="first name" required />
         <input id="last-name" type="text" placeholder="last name" required />
-        <input id="idnumber" type="number" placeholder="ID" required />
-        <input id="title" type="text" placeholder="title" required />
+        <input id="id-number" type="number" placeholder="ID" required />
+        <input id="job-title" type="text" placeholder="title" required />
         <input id="salary" type="number" placeholder="salary" required />
-        <br><input type="submit" value="Submit" />
+        <input type="submit" value="Submit" />
     </form>
-</div>
 
-<div>
     <table id="employees">
-        <thread>
+        <thead>
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -34,7 +32,9 @@
                 <th>Salary</th>
                 <th id="delete"></th>
             </tr>
-        </thread>
+        </thead>
+        <tbody id="employeeData">
+        </tbody>
     </table>
 </div>
 

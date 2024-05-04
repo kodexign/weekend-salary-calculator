@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(178, 145, 178);
+}
+header {
+    background-color: rgb(134, 90, 134);
+    color: white;
+    text-align: center;
+    
+}
+.new-employee{
+    max-width: 800px;
+    margin: 0 auto;
+}
