@@ -17,7 +17,7 @@ function submitForm(event) {
     let salary= document.querySelector('#salary').value;
     console.log('salary',salary);
 
-    let employeeTable = document.querySelector('#employees');
+    let employeeTable = document.querySelector('#employeeData');
  
     employeeTable.innerHTML += `
         <tr>
