@@ -1,5 +1,6 @@
 console.log('hello world');
 let newEmployee =[];
+let max = 20000;
 
 function submitForm(event) {
     console.log('submitForm');
@@ -8,14 +9,15 @@ function submitForm(event) {
     //find inout field and assign to value in variable
     let firstName= document.querySelector('#first').value;
     console.log('first name:', firstName);
-    let lastName= document.querySelector('#last-name').value;
+    let lastName= document.querySelector('#last').value;
     console.log('last name', lastName);
-    let idNumber= document.querySelector('#id-number').value;
+    let idNumber= document.querySelector('#idNum').value;
     console.log('id number:', idNumber);
-    let jobTitle= document.querySelector('#job-title').value;
+    let jobTitle= document.querySelector('#title').value;
     console.log('title', jobTitle);
-    let salary= document.querySelector('#salary').value;
+    let salary= document.querySelector('#compensation').value;
     console.log('salary:', salary);
+
     
     //find tbody and append
     let employeeTable = document.querySelector('#employee-data');
@@ -31,10 +33,15 @@ function submitForm(event) {
         </tr>
     `
     ;
- 
-
-
+//clear input
+first.value = "";
+last.value = "";
+idNum.value = "";
+title.value = "";
+compensation.value = "";
 }
+
+
 function deleteRow(event){
     event.target.parentElement.parentElement.remove();
 }
