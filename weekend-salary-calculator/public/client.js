@@ -5,19 +5,20 @@ function submitForm(event) {
     console.log('submitForm');
     // Stop the page from refreshing
     event.preventDefault();
-
-    let firstName= document.querySelector('#first-name');
-    console.log('first name',firstName);
-    let lastName= document.querySelector('#last-name');
-    console.log('last name',lastName);
+    //find inout field and assign to value in variable
+    let firstName= document.querySelector('#first').value;
+    console.log('first name:', firstName);
+    let lastName= document.querySelector('#last-name').value;
+    console.log('last name', lastName);
     let idNumber= document.querySelector('#id-number').value;
-    console.log('id number',idNumber);
-    let jobTitle= document.querySelector('#jobTitle');
-    console.log('title',jobTitle);
+    console.log('id number:', idNumber);
+    let jobTitle= document.querySelector('#job-title').value;
+    console.log('title', jobTitle);
     let salary= document.querySelector('#salary').value;
-    console.log('salary',salary);
-
-    let employeeTable = document.querySelector('#employeeData');
+    console.log('salary:', salary);
+    
+    //find tbody and append
+    let employeeTable = document.querySelector('#employee-data');
  
     employeeTable.innerHTML += `
         <tr>
@@ -28,7 +29,8 @@ function submitForm(event) {
             <td>${salary}</td>
             <td><button onClick = "deleteRow(event)">Delete</button></td>
         </tr>
-    `;
+    `
+    ;
  
 
 
