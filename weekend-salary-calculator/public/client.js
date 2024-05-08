@@ -1,5 +1,6 @@
 console.log('hello world');
-let newEmployee =[];
+let total =[];
+console.log(total);
 let max = 20000;
 
 function submitForm(event) {
@@ -39,9 +40,21 @@ last.value = "";
 idNum.value = "";
 title.value = "";
 compensation.value = "";
+
+total.push(salary);
+
+
 }
 
-
+//calculate and append montly cost to Dom
+function totalMonthlyCost() {
+    let monthlyCost = document.querySelector('#total');
+monthlyCost.innerHTML += `
+<h2>total monthly cost: ${salary} </h2>
+`
+;
+}
+//delete row button
 function deleteRow(event){
     event.target.parentElement.parentElement.remove();
 }
