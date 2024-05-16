@@ -1,6 +1,6 @@
 console.log('hello world');
 let employeeSalary = [];
-let totalMonthly = 0;
+let sum = 0;
 let max = 20000;
 
 function submitForm(event) {
@@ -10,15 +10,10 @@ function submitForm(event) {
 
     //find inout field and assign to value in variable
     let firstName= document.querySelector('#first').value;
-    console.log('first name:', firstName);
     let lastName= document.querySelector('#last').value;
-    console.log('last name', lastName);
     let idNumber= document.querySelector('#idNum').value;
-    console.log('id number:', idNumber);
     let jobTitle= document.querySelector('#title').value;
-    console.log('title', jobTitle);
     let salary= document.querySelector('#compensation').value;
-    console.log('salary:', salary);
 
     
     //find tbody and append
@@ -35,26 +30,34 @@ function submitForm(event) {
         </tr>
     `
     ;
+
 //clear input
 first.value = "";
 last.value = "";
 idNum.value = "";
 title.value = "";
 compensation.value = "";
-console.log('cleared input');
+console.log('input cleared after submit');
 
+ employeeSalary.push(salary);
 
-employeeSalary.push(salary);
+//delete row button
+function deleteRow(event){
+    event.target.parentElement.parentElement.remove();
+}
 
 //calculate monthly
-function sumArray(employeeSalary){
+function totalMonthly(){
+    for (let i = 0; i < employeeSalary.length; i++){
+        sum += Number(employeeSalary[i]);
+    }
+   console.log('total sum:',sum);
 
-totalMonthly = employeeSalary % 12 + totalMonthly;
-let monthlyCost = document.querySelector('#total');
-monthlyCost.innerHTML += `
-<h2>total monthly cost: ${totalMonthly} </h2>`;
+   monthlySum = Math.floor(sum / 12);
+   let monthly = document.querySelector('#total');
+   monthly.innerHTML = sum;
 }
- 
+
 //overbudget
 function overbudget(){
     if(totalMonthly > 20000){
@@ -62,8 +65,5 @@ function overbudget(){
     over.classList.add('over-budget');
 }
 }
-//delete row button
-function deleteRow(event){
-    event.target.parentElement.parentElement.remove();
-}
-}
+
+};
