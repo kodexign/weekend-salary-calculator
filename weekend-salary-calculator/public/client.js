@@ -1,12 +1,13 @@
 console.log('hello world');
-let total =[];
-console.log(total);
+let employeeSalary = [];
+let totalMonthly = 0;
 let max = 20000;
 
 function submitForm(event) {
     console.log('submitForm');
     // Stop the page from refreshing
     event.preventDefault();
+
     //find inout field and assign to value in variable
     let firstName= document.querySelector('#first').value;
     console.log('first name:', firstName);
@@ -40,21 +41,29 @@ last.value = "";
 idNum.value = "";
 title.value = "";
 compensation.value = "";
+console.log('cleared input');
 
-total.push(salary);
 
+employeeSalary.push(salary);
 
-}
+//calculate monthly
+function sumArray(employeeSalary){
 
-//calculate and append montly cost to Dom
-function totalMonthlyCost() {
-    let monthlyCost = document.querySelector('#total');
+totalMonthly = employeeSalary % 12 + totalMonthly;
+let monthlyCost = document.querySelector('#total');
 monthlyCost.innerHTML += `
-<h2>total monthly cost: ${salary} </h2>
-`
-;
+<h2>total monthly cost: ${totalMonthly} </h2>`;
+}
+ 
+//overbudget
+function overbudget(){
+    if(totalMonthly > 20000){
+    let over = document.querySelector('#total');
+    over.classList.add('over-budget');
+}
 }
 //delete row button
 function deleteRow(event){
     event.target.parentElement.parentElement.remove();
+}
 }

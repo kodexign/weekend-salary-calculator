@@ -33,3 +33,7 @@ employees td,
     background-color: rgb(141, 75, 141);
     color: white;
 }
+
+.over-budget{
+    background-color: red;
+}
